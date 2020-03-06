@@ -1,0 +1,21 @@
+\documentclass[preview]{standalone}
+\usepackage{processdiagrams}
+\newcommand\mydots{\makebox[1em][c]{.\hfil.\hfil.}}
+\begin{document}
+\begin{tikzpicture}[thick, scale=0.75]
+    \draw (+0,+0) node(P){$\rho_{AB_1B_2\cdots B_k}$};
+    \process{P}{5}{1};
+
+    \draw[mid arrow] (Po15) -- ($(Po15) + (0,+0.75)$) node[left]{$A$};
+    \draw[mid arrow] ($(Pi15) + (0,-0.75)$) node[left]{$A$} -- (Pi15);
+
+    \draw[mid arrow] (Po25) -- ($(Po25) + (0,+0.75)$) node[right]{$B_1$};
+    \draw[mid arrow] ($(Pi25) + (0,-0.75)$) node[right]{$B_1$} -- (Pi25);
+
+    \draw[overline, mid arrow] (Po35) to[out=+90, in=+90] ++ (+0.75,0) -- ($(Pi35)+(+0.75,0)$) to[out=-90,in=-90] (Pi35);
+    \draw[overline, mid arrow] (Po55) to[out=+90, in=+90] ++ (+0.75,0) -- ($(Pi55)+(+0.75,0)$) to[out=-90,in=-90] (Pi55);
+
+    \draw ($(Po45) + (0.35,+0.25)$) node{$\mydots$};
+    \draw ($(Pi45) + (0.35,-0.25)$) node{$\mydots$};
+\end{tikzpicture}
+\end{document}

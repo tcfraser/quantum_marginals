@@ -1,0 +1,12 @@
+\documentclass[preview]{standalone}
+\usepackage{processdiagrams}
+\usepackage{youngtab}
+\begin{document}
+\begin{tikzpicture}[thick, scale=2.0]
+    \draw (0,7.5) node(A){$\yng(1,1,1)$};
+    \draw (0,6.25) node(B){$\yng(2,1)$};
+    \draw (0,5) node(C){$\yng(3)$};
+    \draw[->] (A) -- (B);
+    \draw[->] (B) -- (C);
+\end{tikzpicture}
+\end{document}

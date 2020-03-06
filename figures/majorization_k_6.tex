@@ -1,0 +1,30 @@
+\documentclass[preview]{standalone}
+\usepackage{processdiagrams}
+\usepackage{youngtab}
+\begin{document}
+\begin{tikzpicture}[thick, scale=2.0]
+    \draw (0,10) node(A){$\yng(1,1,1,1,1,1)$};
+    \draw (0,8.5) node(B){$\yng(2,1,1,1,1)$};
+    \draw (0,7) node(C){$\yng(2,2,1,1)$};
+    \draw (-1,6) node(D1){$\yng(3,1,1,1)$};
+    \draw (+1,6) node(D2){$\yng(2,2,2)$};
+    \draw (0,5) node(E){$\yng(3,2,1)$};
+    \draw (-1,4) node(F1){$\yng(4,1,1)$};
+    \draw (+1,4) node(F2){$\yng(3,3)$};
+    \draw (0,3) node(G){$\yng(4,2)$};
+    \draw (0,2) node(H){$\yng(5,1)$};
+    \draw (0,1) node(I){$\yng(6)$};
+    \draw[->] (A) -- (B);
+    \draw[->] (B) -- (C);
+    \draw[->] (C) -- (D1);
+    \draw[->] (C) -- (D2);
+    \draw[->] (D1) -- (E);
+    \draw[->] (D2) -- (E);
+    \draw[->] (E) -- (F1);
+    \draw[->] (E) -- (F2);
+    \draw[->] (F1) -- (G);
+    \draw[->] (F2) -- (G);
+    \draw[->] (G) -- (H);
+    \draw[->] (H) -- (I);
+\end{tikzpicture}
+\end{document}

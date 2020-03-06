@@ -1,0 +1,113 @@
+\usepackage[showframe]{geometry}
+
+\geometry{
+    paperwidth=9cm,
+    paperheight=1cm,
+    margin=0cm
+}
+
+\usepackage{tikz}
+\usetikzlibrary{calc} % for relative points
+\usetikzlibrary{arrows, arrows.meta} % for better control over the appearance of arrows 
+\usetikzlibrary{decorations.pathreplacing, decorations.markings} % for arrows midway
+
+\tikzset{
+    % style to apply some styles to each segment of a path
+    on each segment/.style={
+        decorate,
+        decoration={
+            show path construction,
+            moveto code={},
+            lineto code={
+                \path [#1] (\tikzinputsegmentfirst) -- (\tikzinputsegmentlast);
+            },
+            curveto code={
+                \path [#1] (\tikzinputsegmentfirst) .. controls (\tikzinputsegmentsupporta) and (\tikzinputsegmentsupportb) .. (\tikzinputsegmentlast);
+            },
+            closepath code={
+                \path [#1] (\tikzinputsegmentfirst) -- (\tikzinputsegmentlast);
+            },
+        },
+    },
+    % style to add an arrow in the middle of a path
+    mid arrow/.style={
+        postaction={
+            decorate,
+            decoration={
+                markings,
+                mark=at position #1 with {\arrow{>}}
+            }
+        }
+    },
+    mid arrow/.default=.6,
+    % leave behind coordinates for later use
+    sockets/.style={
+        postaction={
+            decorate,
+            decoration={
+                markings,
+                mark=at position 1/2 with {\coordinate (#1);},     % 1 of 1
+                mark=at position 1/2 with {\coordinate (#111);},   % 1 of 1
+                mark=at position 1/4 with {\coordinate (#112);},   % 1 of 2
+                mark=at position 3/4 with {\coordinate (#122);},   % 2 of 2
+                mark=at position 1/6 with {\coordinate (#113);},   % 1 of 3
+                mark=at position 3/6 with {\coordinate (#123);},   % 2 of 3
+                mark=at position 5/6 with {\coordinate (#133);},   % 3 of 3
+                mark=at position 1/8 with {\coordinate (#114);},   % 1 of 4
+                mark=at position 3/8 with {\coordinate (#124);},   % 2 of 4
+                mark=at position 5/8 with {\coordinate (#134);},   % 3 of 4
+                mark=at position 7/8 with {\coordinate (#144);},   % 4 of 4
+                mark=at position 1/10 with {\coordinate (#115);},  % 1 of 5
+                mark=at position 3/10 with {\coordinate (#125);},  % 2 of 5
+                mark=at position 5/10 with {\coordinate (#135);},  % 3 of 5
+                mark=at position 7/10 with {\coordinate (#145);},  % 4 of 5
+                mark=at position 9/10 with {\coordinate (#155);},  % 5 of 5
+                mark=at position 1/12 with {\coordinate (#116);},  % 1 of 6
+                mark=at position 3/12 with {\coordinate (#126);},  % 2 of 6
+                mark=at position 5/12 with {\coordinate (#136);},  % 3 of 6
+                mark=at position 7/12 with {\coordinate (#146);},  % 4 of 6
+                mark=at position 9/12 with {\coordinate (#156);},  % 5 of 6
+                mark=at position 11/12 with {\coordinate (#166);}, % 6 of 6
+            }
+        }
+    }
+}
+
+\tikzset{ % sets the baseline to the vertical midpoint; aligns with equal signs
+    every picture/.style={baseline={(current bounding box.center)}}
+}
+
+\tikzset{ % overline
+    overline/.style = {
+        preaction={
+            draw, white, line width=#1, shorten <=0.2mm, shorten >=0.2mm
+        }
+    },
+    overline/.default=1.5mm
+}
+
+% \tikzset{ 
+%     var/.style = {circle,draw=black,inner sep=2pt,minimum size=10pt},
+%     hidden/.style = {dashed}
+% }
+
+\tikzset{
+    copy/.style = {circle, fill, inner sep=2pt, outer sep=0pt}
+}
+
+\newcommand{\iosockets}[3]{
+    \path[sockets={#1o}] (#1) + (-0.5*#2, +0.5*#3) -- + (+0.5*#2, +0.5*#3);
+    \path[sockets={#1i}] (#1) + (-0.5*#2, -0.5*#3) -- + (+0.5*#2, -0.5*#3);
+}
+\newcommand{\iso}[4][]{
+    \draw[#1] (#2) ++ (-0.5*#3,+0.5*#4) -- ++ (+#3,0) {[rounded corners={min(4*#3,12)}] -- ++ (0,-#4) -- ++ (-#3,0)} -- cycle;
+    \iosockets{#2}{#3}{#4};
+}
+\newcommand{\isod}[4][]{
+    \draw[#1] (#2) ++ (-0.5*#3,-0.5*#4) -- ++ (+#3,0) {[rounded corners={min(4*#3,12)}] -- ++ (0,+#4) -- ++ (-#3,0)} -- cycle;
+    \iosockets{#2}{#3}{#4};
+}
+\newcommand{\process}[4][]{
+    \draw[#1] (#2) + (-0.5*#3, -0.5*#4) rectangle + (+0.5*#3, +0.5*#4);
+    \iosockets{#2}{#3}{#4};
+}

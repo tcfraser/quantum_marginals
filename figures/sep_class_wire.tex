@@ -1,0 +1,23 @@
+\documentclass[preview]{standalone}
+\usepackage{processdiagrams}
+\begin{document}
+\begin{tikzpicture}[thick, scale=0.75]
+    \draw (+0,-1.5) node(R){$p$};
+    \draw (+0,-0.85) node[copy](C){};
+    \draw (-1,0) node(A){$\sigma_A$};
+    \draw (+1,0) node(B){$\sigma_B$};
+    \process{A}{0.75}{0.75};
+    \process{B}{0.75}{0.75};
+    \iso{R}{0.5}{0.5};
+
+    \draw[densely dotted] (Ro) to[out=+90, in=-90] (C);
+    \draw[densely dotted] (C) to[out=+140, in=-90] (Ai22);
+    \draw[densely dotted] (C) to[out=+40, in=-90] (Bi12);
+
+    \draw[mid arrow] (Ao) -- ($(Ao) + (0,+0.75)$) node[left]{$A$};
+    \draw[mid arrow] ($(Ai) + (0,-1.25)$) node[left]{$A$} -- (Ai);
+
+    \draw[mid arrow] (Bo) -- ($(Bo) + (0,+0.75)$) node[right]{$B$};
+    \draw[mid arrow] ($(Bi) + (0,-1.25)$) node[right]{$B$} -- (Bi);
+\end{tikzpicture}
+\end{document}

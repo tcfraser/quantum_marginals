@@ -1,0 +1,58 @@
+\documentclass[preview]{standalone}
+\usepackage{processdiagrams}
+\begin{document}
+\begin{tikzpicture}[thick, scale=1.25]
+
+    \coordinate (NE) at (+0.5,+0.5);
+    \coordinate (NW) at (-0.5,+0.5);
+    \coordinate (SE) at (+0.5,-0.5);
+    \coordinate (SW) at (-0.5,-0.5);
+
+    \coordinate (A) at (-1,+0);
+    \coordinate (B) at (+0,+0);
+    \coordinate (C) at (+1,+0);
+    \coordinate (D) at (-1,-1);
+    \coordinate (E) at (+0,-1);
+    \coordinate (F) at (+1,-1);
+
+    \draw[red!80!black]
+    ($(A) + 1.05*(NW)$) --
+    ($(A) + 1.05*(NE)$) --
+    ($(D) + 1.05*(NE)$) --
+    ($(F) + 1.05*(NE)$) --
+    ($(F) + 1.05*(SE)$) --
+    ($(D) + 1.05*(SW)$) node[above right]{$S_1$} --
+    cycle;
+
+    \draw[blue]
+    ($(E) + (SW)$) node[above right]{$S_2$} --
+    ($(B) + (NW)$) --
+    ($(C) + (NE)$) --
+    ($(C) + (SE)$) --
+    ($(B) + (SE)$) --
+    ($(E) + (SE)$) --
+    cycle;
+
+    \draw[green!50!black]
+    ($(A) + 0.85*(NW)$) --
+    ($(B) + 0.85*(NE)$) --
+    ($(B) + 0.85*(SE)$) --
+    ($(A) + 0.85*(SW)$) node[above right]{$S_3$} --
+    cycle;
+
+    \draw[yellow!80!black]
+    ($(F) + 0.95*(SW)$) node[above right]{$S_4$} --
+    ($(C) + 0.95*(NW)$) --
+    ($(C) + 0.95*(NE)$) --
+    ($(F) + 0.95*(SE)$) --
+    cycle;
+
+    \draw (A) node{$A$};
+    \draw (B) node{$B$};
+    \draw (C) node{$C$};
+    \draw (D) node{$D$};
+    \draw (E) node{$E$};
+    \draw (F) node{$F$};
+
+\end{tikzpicture}
+\end{document}

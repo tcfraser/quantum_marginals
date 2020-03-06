@@ -1,0 +1,36 @@
+\documentclass[preview]{standalone}
+\usepackage{processdiagrams}
+\newcommand\mydots{\makebox[1em][c]{.\hfil.\hfil.}}
+\begin{document}
+\begin{tikzpicture}[thick, scale=0.75]
+    \draw (+0,-1.5) node(R){$p$};
+    \draw (+0,-0.85) node[copy](C){};
+    \draw (-1,0) node(A){$\sigma_A$};
+    \draw (+1,0) node(B1){$\sigma_B$};
+    \draw (+2.25,0) node(B2){$\sigma_B$};
+    \draw (+4,0) node(Bk){$\sigma_B$};
+    \process{A}{0.75}{0.75};
+    \process{B1}{0.75}{0.75};
+    \process{B2}{0.75}{0.75};
+    \process{Bk}{0.75}{0.75};
+    \iso{R}{0.5}{0.5};
+
+    \draw[densely dotted] (Ro) to[out=+90, in=-90] (C);
+    \draw[densely dotted] (C) to[out=+140, in=-90] (Ai22);
+    \draw[densely dotted] (C) to[out=+40, in=-90] (B1i12);
+    \draw[densely dotted] (C) to[out=+30, in=-90] (B2i12);
+    \draw[densely dotted] (C) to[out=+20, in=-90] (Bki12);
+
+    \draw[mid arrow] (Ao) -- ($(Ao) + (0,+0.75)$) node[left]{$A$};
+    \draw[mid arrow] ($(Ai) + (0,-1.25)$) node[left]{$A$} -- (Ai);
+
+    \draw[overline, mid arrow] (B1o) -- ($(B1o) + (0,+0.75)$) node[right]{$B_1$};
+    \draw[overline, mid arrow] ($(B1i) + (0,-1.25)$) node[right]{$B_1$} -- (B1i);
+    \draw[overline, mid arrow] (B2o) -- ($(B2o) + (0,+0.75)$) node[right]{$B_2$};
+    \draw[overline, mid arrow] ($(B2i) + (0,-1.25)$) node[right]{$B_2$} -- (B2i);
+    \draw[overline, mid arrow] (Bko) -- ($(Bko) + (0,+0.75)$) node[right]{$B_k$};
+    \draw[overline, mid arrow] ($(Bki) + (0,-1.25)$) node[right]{$B_k$} -- (Bki);
+
+    \draw ($0.5*(B2)+0.5*(Bk)$) node{$\mydots$};
+\end{tikzpicture}
+\end{document}

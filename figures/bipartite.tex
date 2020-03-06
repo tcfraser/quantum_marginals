@@ -1,0 +1,14 @@
+\documentclass[preview]{standalone}
+\usepackage{processdiagrams}
+\begin{document}
+\begin{tikzpicture}[thick, scale=0.75]
+    \draw (+0,+0) node(P){$\rho_{AB}$};
+    \process{P}{2}{1};
+
+    \draw[mid arrow] (Po12) -- ($(Po12) + (0,+0.75)$) node[left]{$A$};
+    \draw[mid arrow] ($(Pi12) + (0,-0.75)$) node[left]{$A$} -- (Pi12);
+
+    \draw[mid arrow] (Po22) -- ($(Po22) + (0,+0.75)$) node[right]{$B$};
+    \draw[mid arrow] ($(Pi22) + (0,-0.75)$) node[right]{$B$} -- (Pi22);
+\end{tikzpicture}
+\end{document}
