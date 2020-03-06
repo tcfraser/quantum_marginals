@@ -1,0 +1,67 @@
+\documentclass[preview]{standalone}
+\usepackage{processdiagrams}
+\begin{document}
+\begin{tikzpicture}[thick, scale=0.75]
+
+    \pgfmathsetmacro{\ww}{1};
+
+    \draw (-5*\ww,0) node(A1){$\mathcal E_{A}$};
+    \draw (-3*\ww,0) node(B1){$\mathcal E_{B}$};
+    \draw (-1*\ww,0) node(C1){$\mathcal E_{C}$};
+
+    \draw (-4*\ww,-1.25) node(c1){$\rho_{\gamma}$};
+    \draw (-2*\ww,-1.25) node(a1){$\rho_{\alpha}$};
+    \draw (+0,-2.5) node(b1){$\rho_{\beta}$};
+
+    \process{A1}{1}{0.75};
+    \process{B1}{1}{0.75};
+    \process{C1}{1}{0.75};
+
+    \iso{c1}{1}{0.5};
+    \iso{a1}{1}{0.5};
+    \iso{b1}{1}{0.5};
+
+    \draw[mid arrow] (A1o) -- ++ (0, +0.5);
+    \draw[mid arrow] (B1o) -- ++ (0, +0.5);
+    \draw[mid arrow] (C1o) -- ++ (0, +0.5);
+
+    \draw[mid arrow] (c1o12) to[out=+90,in=-90] (A1i22);
+    \draw[mid arrow] (c1o22) to[out=+90,in=-90] (B1i12);
+
+    \draw[mid arrow] (a1o12) to[out=+90,in=-90] (B1i22);
+    \draw[mid arrow] (a1o22) to[out=+90,in=-90] (C1i12);
+
+
+    \draw (+1*\ww,0) node(A2){$\mathcal E_{A}$};
+    \draw (+3*\ww,0) node(B2){$\mathcal E_{B}$};
+    \draw (+5*\ww,0) node(C2){$\mathcal E_{C}$};
+
+    \draw (+2*\ww,-1.25) node(c2){$\rho_{\gamma}$};
+    \draw (+4*\ww,-1.25) node(a2){$\rho_{\alpha}$};
+    \draw (+0,-1.25) node(b2){$\rho_{\beta}$};
+
+    \process{A2}{1}{0.75};
+    \process{B2}{1}{0.75};
+    \process{C2}{1}{0.75};
+
+    \iso{c2}{1}{0.5};
+    \iso{a2}{1}{0.5};
+    \iso{b2}{1}{0.5};
+
+    \draw[mid arrow] (A2o) -- ++ (0, +0.5);
+    \draw[mid arrow] (B2o) -- ++ (0, +0.5);
+    \draw[mid arrow] (C2o) -- ++ (0, +0.5);
+
+    \draw[mid arrow] (c2o12) to[out=+90,in=-90] (A2i22);
+    \draw[mid arrow] (c2o22) to[out=+90,in=-90] (B2i12);
+
+    \draw[mid arrow] (a2o12) to[out=+90,in=-90] (B2i22);
+    \draw[mid arrow] (a2o22) to[out=+90,in=-90] (C2i12);
+
+    \draw[mid arrow] (b2o12) to[out=+90,in=-90] (A2i12);
+    \draw[overline, mid arrow] (b2o22) to[out=+90,in=-90] (C1i22);
+
+    \draw[mid arrow] (b1o12) to[out=+90,in=+  0] ++ (-2,+0.5) -- ++ (-2,0) to[out=+180,in=-90] (A1i12);
+    \draw[mid arrow] (b1o22) to[out=+90,in=+180] ++ (+2,+0.5) -- ++ (+2,0) to[out=+  0,in=-90] (C2i22);
+\end{tikzpicture}
+\end{document}

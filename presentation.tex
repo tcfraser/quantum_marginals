@@ -69,7 +69,7 @@
 \usepackage{physics}
 \usepackage{mathtools}
 
-\newcommand{\incstr}[1]{\vcenter{\hbox{\includegraphics[scale=0.55]{figures/#1}}}} % including string diagrams
+\newcommand{\incstr}[1]{\vcenter{\hbox{\includegraphics[scale=0.5]{figures/#1}}}} % including string diagrams
 
 \title[]{The Quantum Marginals Problem}
 \date[]{} % Removing the date.
@@ -334,7 +334,7 @@
     \end{itemize}
     \begin{theorem}
         Let $\ket{V_J}$ be an eigenvector of $\rho^{\otimes k}$ with \textit{multiplicity partition} $\mu(J) \in \mathcal Y_k$. Then
-        \[ \Tr(P_\lambda \ket{V_J}\bra{V_J}) = \begin{cases} 0 & \mu(J) \preceq \lambda \\ 1 & \text{otherwise} \end{cases} \]
+        \[ \Tr(P_\lambda \ket{V_J}\bra{V_J}) = \begin{cases} 0 & \mu(J) \preceq \lambda \\ > 0 & \text{otherwise} \end{cases} \]
     \end{theorem}
     \begin{itemize}
         \item Where $\preceq$ is the \textit{majorization preorder} defined on partitions of $k$ as
@@ -448,6 +448,44 @@
 \begin{frame}
     \frametitle{Quantum Causality \& The Future of Marginal Problems}
 \end{frame}
+
+\begin{frame}
+    \frametitle{A QMP for Triangle Network Compatibility}
+    \[ \incstr{triangle_state.pdf} = \incstr{triangle_production.pdf} \]
+    \[ \incstr{triangle_state.pdf}\hspace{0.5em}\incstr{triangle_state.pdf} = \incstr{triangle_production_double.pdf} \]
+    \[ \incstr{triangle_sextuple.pdf} = \incstr{triangle_production_ring.pdf} \]
+    \[ \Gamma_{A_1B_1C_1A_2B_2C_2} = \Gamma_{A_2B_2C_2A_1B_1C_1} \]
+\end{frame}
+
+\begin{frame}
+    \frametitle{A QMP for Triangle Network Compatibility, Cont'd}
+    \begin{align*}
+        \incstr{triangle_sextuple_discard.pdf} 
+        &= \incstr{triangle_production_ring_discard.pdf} \\
+        &= \incstr{triangle_production_ring_discard_pulldown.pdf} \\
+        &= \incstr{triangle_marg_state_Ac.pdf} \hspace{0.5em}\incstr{triangle_marg_state_Ac.pdf}
+    \end{align*}
+    \begin{align*}
+        \Tr_{B_1B_2}(\Gamma_{A_1B_1C_1A_2B_2C_2}) &= \rho_{AC} \otimes \rho_{AC} \\
+        \Tr_{A_1A_2}(\Gamma_{A_1B_1C_1A_2B_2C_2}) &= \rho_{BC} \otimes \rho_{BC} \\
+        \Tr_{C_1C_2}(\Gamma_{A_1B_1C_1A_2B_2C_2}) &= \rho_{AB} \otimes \rho_{AB}
+    \end{align*}
+\end{frame}
+
+\begin{frame}
+    \frametitle{A QMP for Triangle Network Compatibility, Cont'd}
+    \begin{align*}
+        \incstr{triangle_sextuple_discard_3.pdf} 
+        &= \incstr{triangle_production_ring_discard_3.pdf} \\
+        &= \incstr{triangle_production_ring_discard_3_pulldown.pdf} \\
+        &= \incstr{triangle_marg_state_A.pdf} \hspace{0.5em}\incstr{triangle_marg_state_C.pdf}\hspace{0.5em}\incstr{triangle_marg_state_B.pdf}
+    \end{align*}
+    \begin{align*}
+        \Tr_{B_1A_2C_2}(\Gamma_{A_1B_1C_1A_2B_2C_2}) &= \rho_{A} \otimes \rho_{B} \otimes \rho_{C} \\
+        \Tr_{A_1C_1B_2}(\Gamma_{A_1B_1C_1A_2B_2C_2}) &= \rho_{B} \otimes \rho_{A} \otimes \rho_{C}
+    \end{align*}
+\end{frame}
+
 
 \begin{frame}[allowframebreaks]
     \frametitle{References}

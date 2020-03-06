@@ -1,0 +1,11 @@
+\documentclass[preview]{standalone}
+\usepackage{processdiagrams}
+\begin{document}
+\begin{tikzpicture}[thick, scale=0.75]
+    \draw (0,0) node(p){$\rho_{AC}$};
+    \iso{p}{2}{1};
+    \foreach \i in {1,2} {
+        \draw[mid arrow] (po\i 2) -- ++(0, +0.5);
+    }
+\end{tikzpicture}
+\end{document}

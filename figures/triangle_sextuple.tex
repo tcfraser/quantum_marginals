@@ -1,0 +1,11 @@
+\documentclass[preview]{standalone}
+\usepackage{processdiagrams}
+\begin{document}
+\begin{tikzpicture}[thick, scale=0.75]
+    \draw (0,0) node(p){$\Gamma_{A_1B_1C_1A_2B_2C_2}$};
+    \iso{p}{4}{1};
+    \foreach \i in {1,2,3,4,5,6} {
+        \draw[mid arrow] (po\i 6) -- ++(0, +0.5);
+    }
+\end{tikzpicture}
+\end{document}
