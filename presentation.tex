@@ -69,10 +69,10 @@
 \usepackage{physics}
 \usepackage{mathtools}
 
-\newcommand{\incstr}[1]{\vcenter{\hbox{\includegraphics[scale=0.5]{figures/#1}}}} % including string diagrams
+\newcommand{\incstr}[1]{\vcenter{\hbox{\includegraphics[scale=0.65]{figures/#1}}}} % including string diagrams
 
 \title[]{The Quantum Marginals Problem}
-\date[]{} % Removing the date.
+\date[]{March 6, 2020}
 \AtBeginSection[]{
   \begin{withoutheadline}
   \begin{frame}
@@ -92,15 +92,10 @@
 \begin{withoutheadline}
     \begin{frame}
         \titlepage
-        \vspace{-0.8in}
         \begin{center}
-            XXX
-        \end{center}
-        \vspace{-0.2in}
-        \begin{center}
-            {\footnotesize TC Fraser} \\
+            {TC Fraser} \\
             \vspace{0.8em}
-            {\scriptsize Quantum Foundations Group Meeting \\ March 6th, 2019}
+            {Quantum Foundations Group Meeting}
         \end{center}
     \end{frame}
 \end{withoutheadline}
@@ -108,8 +103,7 @@
 \begin{frame}
     \frametitle{Overview}
     \begin{enumerate}
-        \item Big Picture
-        \item Origins of the Problem
+        \item Big Picture \& Origins of the Problem
         \item Definitions and Terminology
         \item Various Applications and Known Results
         \item Quantum Causality \& The Future of Marginal Problems
@@ -120,10 +114,29 @@
 \begin{frame}
     \frametitle{Big Picture}
     % constraining local data which is compatible with a global model
+    \begin{columns}
+        \begin{column}{0.7\textwidth}
+            \begin{itemize}
+                \item When is local information compatible with a global model?
+                \item Already many instances within Quantum Foundations
+                \item Classical marginal problems (application to database integrity, knowledge integration, coalition games)\footnotemark{}
+                \item Local operational data is contextual when in fails to admit of a global noncontextual ontological model\footnotemark{} 
+                \item Wigner functions arise when trying to view the statistics of local quantum observables as marginals of a covariant global distribution 
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.3\textwidth}
+            \begin{center}
+                Example: \\
+                \includegraphics[width=\textwidth]{figures/geb_cover.jpg}
+            \end{center}
+        \end{column}
+    \end{columns}
+    \footcitetext{fritz2012entropic}
+    \footcitetext{abramsky2011sheaf}
 \end{frame}
 
 \begin{frame}
-    \frametitle{Origins of the Problem}
+    \frametitle{Origins of the Quantum Marginal Problem}
     \begin{columns}
         \begin{column}{0.6\textwidth}
             \begin{itemize}
@@ -151,8 +164,8 @@
 \begin{frame}
     \frametitle{The $N$-Representability Problem is Hard}
     \begin{alertblock}{}
-        \textit{``We make no apology for the consideration of such a special case. The general $N$-representability problem for one and two body reduced density matrices is so difficult and yet so fundamental to many branches of science that each concrete result is useful in shedding light on the nature of the solution of the more general problem.''}\footnotemark{}
-        \hspace*\fill{\small--- B. E. Borland, K. Dennis}
+        \textit{``We make no apology for the consideration of such a special case. The general $N$-representability problem for one and two body reduced density matrices is so difficult and yet so fundamental to many branches of science that each concrete result is useful in shedding light on the nature of the solution of the more general problem.''}
+        \hspace*\fill{\small--- B. E. Borland, K. Dennis\footnotemark{}}
     \end{alertblock}
     \footcitetext{borland1972conditions}
     \begin{itemize}
@@ -194,6 +207,7 @@
         \item \textit{spectral} QMP : characterize the space of specta $\lambda_j  = \mathrm{spec}(\rho_{S_j})$
         \item \textit{fermionic} QMP : the joint density operator is $\rho_{\mathcal T} \in \mathcal B ( \bigwedge^{\abs{\mathcal T}} \mathcal H)$
         \item \textit{Gaussian} QMP : the marginal $\rho_{S_j}$ and joint density operators are Gaussian states
+        \item \textit{channel} QMP : replace density operators with quantum channels
         \item and many more
     \end{itemize}
 \end{frame}
@@ -243,10 +257,17 @@
 
 \begin{frame}
     \frametitle{Klyachko Shows Us the Light}
-\end{frame}
-
-\begin{frame}
-    \frametitle{Gravitational Marginal Problem}
+    \begin{itemize}
+        \item In 2004\footcite{klyachko2004quantum} and 2006\footcite{klyachko2006quantum}, \citeauthor{klyachko2006quantum} effectively solves all disjoint spectral QMP
+        \item Utilizes results from \textit{geometric invariant theory}, in particular the Hilbert-Mumford stability criterion to derive necessary and sufficient constraints on spectra\footcite{ressayre2010geometric}.
+        \item Essential conclusion: the space of compatible disjoint spectra is always a finite polytope!
+        \item Also applies to the spectra of the Riemann curvature tensor $\mathrm{R} : \wedge^2 \mathcal T \to \wedge^2 \mathcal T$ and Ricci tensor $\mathrm{Ric} : \mathcal T \to \mathcal T$ which are mutually compatible (inequalities are unpublished, but in his slides)
+        \item Establishes connection with representation theory using \citeauthor{berenstein2000coadjoint}'s work\footcite{berenstein2000coadjoint}
+    \end{itemize}
+    \begin{alertblock}{}
+        \textit{``For overlapping margins like $\rho_{AB}, \rho_{BC}, \rho_{AC}$, the problem is beyond the scope of the current approach.''}
+        \hspace*\fill{\small--- A. Klyachko, 2009}
+    \end{alertblock}
 \end{frame}
 
 \begin{frame}
@@ -260,7 +281,7 @@
             \end{itemize}
         \item \citeauthor{klassen2017existence}'s thesis\footcite{klassen2017existence}:
             \begin{itemize}
-                \item Investigates the extent to which aspects of the global quantum state can be uniquely determined by its marginals.
+                \item Investigates the extent to which various features of the global quantum state can be uniquely determined by its marginals.
             \end{itemize}
     \end{itemize}
 \end{frame}
@@ -272,6 +293,7 @@
         \begin{column}{\textwidth}
             \begin{itemize}
                 \item \citeauthor{keyl2005estimating}\footnotemark{} interested in indirect \textit{measurement} of the spectra of a $d$-level system $\rho$
+                \item Their results prove useful for spectral marginal problems
                 \item Find a sequence projections $P_k$ over possible spectra $\Sigma$
                     \[ \Sigma = \{ s \in \mathbb R^d \mid \sum_{j=1}^{d} s_j = 1, \forall j : s_j \geq s_{j+1} \geq 0\} \]
             \end{itemize}
@@ -316,7 +338,7 @@
     \frametitle{How to Survive a Young Projector}
     \begin{itemize}
         \item Eigen-decomposition of $\rho = {\sum}_{j=1}^{d} r_j \ket{v_j} \bra{v_j}$
-        \item Eigen-vectors of $\rho^{\otimes k}$ are then of the form
+        \item Eigenvectors of $\rho^{\otimes k}$ are then of the form
             \[ \ket{V_{J}} \coloneqq \ket{V_{(j_1, \ldots, j_k)}} \coloneqq \ket{v_{j_1}}\otimes\ket{v_{j_2}}\otimes \cdots \otimes\ket{v_{j_k}}\qquad J \in \{ 1, \ldots, d\}^{k} \]
         \item Example for $1 \leq i, j \leq d$ and $k=3$ with $\lambda = [1,1,1] \simeq \scalebox{0.4}{\yng(1,1,1)}$:
             \[ P_{\scalebox{0.4}{\yng(1,1,1)}} \ket{V_{(i, i, j)}} \propto \ket{V_{(i, i, j)}} - \ket{V_{(i, i, j)}} + \ket{V_{(i, j, i)}} - \ket{V_{(i, j, i)}}+\ket{V_{(j, i, i)}} - \ket{V_{(j, i, i)}} = 0\]
@@ -327,20 +349,20 @@
 \end{frame}
 
 \begin{frame}
-    \frametitle{How to Survive a Yound Projector, Cont'd}
+    \frametitle{How to Survive a Young Projector, Cont'd}
     \begin{itemize}
         \item For $J \in \{1, \ldots, d\}^{k}$ define the \textit{multiplicity partition} $\mu(J) \in \mathcal Y_k$ in the obvious way:
             \[ \mu((1,1,2,4,4,4)) = [3, 2, 1] \simeq \scalebox{0.4}{\yng(3,2,1)} \]
     \end{itemize}
     \begin{theorem}
-        Let $\ket{V_J}$ be an eigenvector of $\rho^{\otimes k}$ with \textit{multiplicity partition} $\mu(J) \in \mathcal Y_k$. Then
-        \[ \Tr(P_\lambda \ket{V_J}\bra{V_J}) = \begin{cases} 0 & \mu(J) \preceq \lambda \\ > 0 & \text{otherwise} \end{cases} \]
+        Let $\ket{V_J}$ be a non-zero eigenvector of $\rho^{\otimes k}$ with \textit{multiplicity partition} $\mu(J) \in \mathcal Y_k$. Then
+        \[ P_\lambda \ket{V_J} = 0 \iff \mu(J) \preceq \lambda \]
     \end{theorem}
     \begin{itemize}
         \item Where $\preceq$ is the \textit{majorization preorder} defined on partitions of $k$ as
             \[ \mu \preceq \lambda \iff \begin{cases} \sum_{i=1}^{m} \mu_{i} \leq \sum_{i=1}^{m} \lambda_{i} & \forall m \leq k-1, \\ \sum_{i=1}^{k} \mu_{i} = \sum_{i=1}^{k} \lambda_{i} \end{cases} \]
         where $\mu_1 \geq \mu_2 \geq \cdots \geq 0$ and $\lambda_1 \geq \lambda_2 \geq \cdots \geq 0$.
-        \item As a corollary, eigenvalues of $P_\lambda \rho^{\otimes k} P_{\lambda}$ will be upper bounded by $\prod_{i} r_i^{\lambda_i}$ (which is largest for $\lambda_i/k \sim r_i$)
+        \item As a corollary, eigenvalues of $P_\lambda \rho^{\otimes k} P_{\lambda}$ are upper bounded by $\prod_{i} r_i^{\lambda_i}$ (which is largest for $\lambda_i/k \approx r_i$)
     \end{itemize}
 \end{frame}
 
@@ -385,21 +407,27 @@
     \begin{theorem}[\citeauthor{christandl2006spectra}~\citeyear{christandl2006spectra}]
         Let $\rho$ be a density operator with spectrum $r = \mathrm{spec}(\rho)$ and let $P_\lambda$ be the projection onto $\mathcal U_\lambda \otimes \mathcal V_\lambda$ for $\lambda \in \mathcal Y_k$. Then
         \[ \Tr ( P_\lambda \rho^{\otimes k} ) \leq (k + 1)^{d(d-1)/2} \exp ( - k D(\bar \lambda || r  )) \]
-        where $\bar \lambda = \lambda / k$.
+        where $\bar \lambda$ is defined as $\bar \lambda_i = \lambda_i / k$.
     \end{theorem}
     \begin{definition}[KL Divergence]
         The Kullback-Liebler divergence $D(p ||q)$ between two normalized probability distributions $p$ and $q$ is
         \[ D(p || q) = {\sum}_{i} p_i ( \log p_i - \log q_i ). \]
     \end{definition}
+    \begin{itemize}
+        \item Apply this result to the spectral QMP $\{ r_{AB}, r_{A}, r_{B} \}$
+        \item Rough conclusion: for each $k$, there must be three partitions $\lambda, \mu, \nu$ of $k$ with
+            \[ \bar \lambda \approx r_{AB}, \quad \bar \mu \approx r_{A}, \quad \bar \nu \approx r_{B} \]
+            such that $(P_{\mu} \otimes P_{\nu}) P_{\lambda} \neq 0$
+    \end{itemize}
 \end{frame}
 
 \begin{frame}
-    \frametitle{Asymptotics of Kronecker Coefficients \& the Spectral Maringal Problem}
+    \frametitle{Asymptotics of Kronecker Coefficients \& the Spectral Marginal Problem}
     \begin{definition}
         The \textit{Kronecker coefficients} dictate the irreps of $S_k$ which are sub-representations of products of irreps of $S_k$:
         \[ \mathcal U_{\mu} \otimes \mathcal U_{\nu}  = {\bigoplus}_{\lambda \in \mathcal Y_k} g_{\lambda \mu \nu} U_{\lambda} \]
     \end{definition}
-    \begin{theorem}[\citeauthor{christandl2006spectra}~\citeyear{christandl2006spectra}]
+    \begin{theorem}[Christandl-Mitchison, 2006]
         For every density operator $\rho_{AB}$, there is a sequence $(\lambda_j, \mu_j, \nu_j)$ of partitions with $j \in \mathbb N_+$ of $k_j = |\lambda_j| = |\mu_j| = |\nu_j|$ such that 
         \[ g_{\lambda_j \mu_j \nu_j} \neq 0 \quad \text{i.e.} \quad \mathcal U_{\lambda_j} \subset \mathcal U_{\mu_j} \otimes \mathcal U_{\nu_j} \]
         \begin{align*}
@@ -447,18 +475,38 @@
 
 \begin{frame}
     \frametitle{Quantum Causality \& The Future of Marginal Problems}
+    \begin{itemize}
+        \item The ability to test causal hypotheses is intrinsically important to science
+        \item For quantum theory, the quantum inflation technique due to \citeauthor{wolfe2019quantum}\footnotemark{} transforms quantum causal hypotheses into QMPs
+        \item Quick example with \textit{triangle network}:
+            \[ \incstr{triangle_state.pdf} = \incstr{triangle_production.pdf} \]
+        \item The tripartite quantum state $\rho_{ABC}$ can be prepared using the triangle network only if there exists a $6$-partite quantum state $\Gamma_{A_1B_1C_1A_2B_2C_2}$ admitting certain marginals
+    \end{itemize}
+    \footcitetext{wolfe2019quantum}
 \end{frame}
 
 \begin{frame}
     \frametitle{A QMP for Triangle Network Compatibility}
+    \begin{itemize}
+        \item If $\rho_{ABC}$ is triangle network compatible,
+    \end{itemize}
     \[ \incstr{triangle_state.pdf} = \incstr{triangle_production.pdf} \]
+    \begin{itemize}
+        \item then prepare $\rho_{ABC}$ twice,
+    \end{itemize}
     \[ \incstr{triangle_state.pdf}\hspace{0.5em}\incstr{triangle_state.pdf} = \incstr{triangle_production_double.pdf} \]
+    \begin{itemize}
+        \item but instead rewire the sources,
+    \end{itemize}
     \[ \incstr{triangle_sextuple.pdf} = \incstr{triangle_production_ring.pdf} \]
-    \[ \Gamma_{A_1B_1C_1A_2B_2C_2} = \Gamma_{A_2B_2C_2A_1B_1C_1} \]
+    \[ \incstr{triangle_sextuple.pdf} = \incstr{triangle_sextuple_swap.pdf} \]
 \end{frame}
 
 \begin{frame}
     \frametitle{A QMP for Triangle Network Compatibility, Cont'd}
+    \begin{itemize}
+        \item Some marginals of $\Gamma_{A_1B_1C_1A_2B_2C_2}$ are constrained by $\rho_{ABC}$,
+    \end{itemize}
     \begin{align*}
         \incstr{triangle_sextuple_discard.pdf} 
         &= \incstr{triangle_production_ring_discard.pdf} \\
@@ -486,7 +534,7 @@
     \end{align*}
 \end{frame}
 
-
+\section{References}
 \begin{frame}[allowframebreaks]
     \frametitle{References}
     \printbibliography

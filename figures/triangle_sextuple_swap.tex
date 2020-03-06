@@ -1,0 +1,14 @@
+\documentclass[preview]{standalone}
+\usepackage{processdiagrams}
+\begin{document}
+\begin{tikzpicture}[thick, scale=0.75]
+    \draw (0,0) node(p){$\Gamma_{A_1B_1C_1A_2B_2C_2}$};
+    \iso{p}{4}{1};
+    \draw[overline=1mm, mid arrow=0.9] (po16) to[out=+90,in=-90] ($(po46)+(0, +1.5)$);
+    \draw[overline=1mm, mid arrow=0.9] (po26) to[out=+90,in=-90] ($(po56)+(0, +1.5)$);
+    \draw[overline=1mm, mid arrow=0.9] (po36) to[out=+90,in=-90] ($(po66)+(0, +1.5)$);
+    \draw[overline=1mm, mid arrow=0.9] (po46) to[out=+90,in=-90] ($(po16)+(0, +1.5)$);
+    \draw[overline=1mm, mid arrow=0.9] (po56) to[out=+90,in=-90] ($(po26)+(0, +1.5)$);
+    \draw[overline=1mm, mid arrow=0.9] (po66) to[out=+90,in=-90] ($(po36)+(0, +1.5)$);
+\end{tikzpicture}
+\end{document}
